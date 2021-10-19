@@ -7,6 +7,7 @@ from loguru import logger
 from .archive import Archiver
 from .silence import SilenceListener
 
+_TIMEOUT = None
 
 # pylint: disable=too-many-arguments
 def listen(

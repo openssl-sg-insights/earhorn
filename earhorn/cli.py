@@ -6,6 +6,12 @@ from .earhorn import listen
 
 @click.command()
 @click.option(
+    "--silence",
+    help="Hook to run in case of silence.",
+    is_flag=True,
+    default=False,
+)
+@click.option(
     "--archive-path",
     envvar="ARCHIVE_PATH",
     help="Path to the archive directory.",

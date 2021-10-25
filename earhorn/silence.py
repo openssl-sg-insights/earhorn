@@ -58,10 +58,12 @@ def validate_silence_duration(
 class SilenceListener(Thread):
     name = "silence_listener"
     url: str
+    threshold: int
 
-    def __init__(self, url):
+    def __init__(self, url, threshold):
         Thread.__init__(self)
         self.url = url
+        self.threshold = threshold
 
     def run(self):
         logger.info("starting silence listener")

@@ -7,9 +7,21 @@ from .earhorn import listen
 @click.command()
 @click.option(
     "--silence",
-    help="Hook to run in case of silence.",
+    envvar="SILENCE",
+    help="Enable silence monitoring.",
     is_flag=True,
     default=False,
+)
+@click.option(
+    "--silence-threshold",
+    envvar="SILENCE_THRESHOLD",
+    help="Duration of a silence before alerting.",
+    default=5,
+)
+@click.option(
+    "--silence-handler-logs",
+    envvar="SILENCE_HANDLER_LOGS",
+    help="Path to the silence handler logs.",
 )
 @click.option(
     "--archive-path",

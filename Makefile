@@ -24,5 +24,8 @@ lint: install
 test: install
 	poetry run pytest -n $(CPU_CORES) --color=yes -v --cov=earhorn tests
 
+e2e: install
+	poetry run pytest -n $(CPU_CORES) --color=yes -v --cov=earhorn e2e
+
 ci-publish:
 	poetry publish --no-interaction --build

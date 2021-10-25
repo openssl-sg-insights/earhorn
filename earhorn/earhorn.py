@@ -12,6 +12,7 @@ from .silence import SilenceListener
 def listen(
     url: str,
     silence: bool,
+    silence_threshold: int,
     archive_path: Optional[Path],
     archive_segment_size: int,
     archive_segment_filename: str,
@@ -20,7 +21,7 @@ def listen(
 
     threads: List[Thread] = []
     if silence:
-        silence_listener = SilenceListener(url)
+        silence_listener = SilenceListener(url, silence_threshold)
         silence_listener.start()
         threads.append(silence_listener)
 

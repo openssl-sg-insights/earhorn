@@ -31,3 +31,14 @@ test: install
 
 ci-publish:
 	poetry publish --no-interaction --build
+
+
+howler-build:
+	cd howler && docker build -t howler .
+
+howler-run:
+	docker run -it --rm \
+		-p 8000:8000 \
+		-v $(shell pwd)/howler/icecast.xml:/etc/icecast/icecast.xml \
+		-v $(shell pwd)/howler/sample.ogg:/sample.ogg \
+		howler

@@ -1,11 +1,11 @@
-FROM python:3.10-bullseye as build
+FROM python:3.11-bullseye as build
 
 RUN pip install poetry
 
 COPY . .
 RUN poetry build
 
-FROM python:3.10-alpine
+FROM python:3.11-alpine
 
 RUN apk add --no-cache ffmpeg
 
